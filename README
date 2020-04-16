@@ -4,17 +4,20 @@ Pro beh je potreba mit nainstalovany python3.6 a pip
     sudo apt-get update
     apt-get install python3-pip
 
-Nainstalujeme selenium a beahve
+Nainstalujeme selenium a behave
     pip3 install selenium
     pip3 install behave
     sudo apt install python3-behave
 
-Dale je potreba zpristupnit webdriver pro ovladani prohlizece (pro Firefox to je geckodriver dostupny z: https://github.com/mozilla/geckodriver/releases), po stahnuti je potreba jej umistit do adresare /usr/local/bin a zmenit prava pres chmod +x, driver pouzity pri testovani je umisten v adresari ./drivers.
+Dale je potreba zprovoznit webdriver pro ovladani prohlizece (pro Firefox geckodriver dostupny z: https://github.com/mozilla/geckodriver/releases), po stahnuti je potreba ho umistit do adresare /usr/local/bin a pridat pravo pro spusteni (chmod +x), driver pouzity pri testovani je umisten v adresari ./drivers, ktery lze taky pouzit.
     sudo cp /drivers/geckodriver /usr/local/bin
 
 Nainstalovat GNU AWK (pro kompatibilitu s generovanymi skripty)
     sudo apt-get update
     sudo apt-get install gawk
 
-Spusteni: behave
-Debug: behave -n "nazev scenare" --no-capture -f plain
+Spusteni vsech testu: behave
+Spusteni feature: behave -i <nazev>
+Spusteni scenare: behave -n "<nazev>"
+
+Debug: behave -n "<scenar>" --no-capture -f plain
