@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 Feature: RegexMatch
 
     Scenario: Pridani nastroje sensitive Regex Match

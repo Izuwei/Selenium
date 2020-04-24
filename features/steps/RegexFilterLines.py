@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 import selenium
 from behave import *
 from time import sleep

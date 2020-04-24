@@ -1,15 +1,23 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 import selenium
 from behave import *
 from time import sleep
 
-@when("Uživatel vrátí krok zpět")
+@when("Uzivatel vrati krok zpet")
 def step(context):
     context.browser.find_element_by_id("editor-sec").click()
     sleep(1)
     context.browser.find_element_by_id("undo").click()
     sleep(1)
 
-@when("Uživatel se vrátí krokem dopředu")
+@when("Uzivatel napise do editoru {text}")
+def step(context, text):
+    sleep(1)
+    context.browser.execute_script('ace.edit("EditorIn").setValue({})'.format(text))
+
+@when("Uzivatel se vrati krokem dopredu")
 def step(context):
     context.browser.find_element_by_id("editor-sec").click()
     sleep(1)

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3.6
+
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 

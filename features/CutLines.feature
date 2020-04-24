@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 Feature: CutLines
 
     Scenario: Vyjmuti hornich radku

@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 Feature: FilterColumns
 
     Scenario: Odstraneni sloupce pomoci nastroje Filter columns

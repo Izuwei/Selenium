@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 Feature: Trim
 
     Scenario: Oriznuti textu od bilich znaku

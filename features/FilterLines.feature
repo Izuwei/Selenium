@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 Feature: FilterLines
 
     Scenario: Odstraneni prazdnych radku
@@ -26,7 +29,7 @@ Feature: FilterLines
         And Uzivatel nastavi filtraci radku na case "sensitive"
         And Uzivatel nastavi podretezec pro filtraci radku na "a"
         And Uzivatel prida nastroj Filter lines
-        Then Vysledek obsahuje " bb \nAA\n  \n\n"
+        Then Vysledek obsahuje " bb \nAA\n  \n"
         And Vygenerovany shell skript je "cat $FILENAME | sed -E '/a/d'"
 
     Scenario: Odstraneni radku pomoci isensitivniho podretezce ve sloupci
@@ -51,5 +54,5 @@ Feature: FilterLines
         And Uzivatel nastavi podretezec pro filtraci radku na "a"
         And Uzivatel prida nastroj Filter lines
         Then Vysledek obsahuje "aa bb\n bb \nAA\n  \n\naa bb cc"
-        And Vygenerovany shell skript je "cat $FILENAME | awk -F ' ' '{IGNORECASE=1}$10 !~ "a" {print}'"
+        And Vygenerovany shell skript je "cat $FILENAME | awk -F '[ ]' '{IGNORECASE=1}$10 !~ "a" {print}'"
         

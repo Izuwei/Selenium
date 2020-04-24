@@ -1,3 +1,6 @@
+# FIT VUT 2020
+# @author Jakub Sadilek
+
 Feature: RegexFilterLines
 
     Scenario: Filtrace radku pomoci sensitivnich regularnich vyrazu
