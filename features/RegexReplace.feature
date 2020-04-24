@@ -49,3 +49,14 @@ Feature: RegexReplace
         And Uzivatel prida nastroj Regex Replace
         Then Vysledek obsahuje "ab|(cd)|ef\ngh|(ij)|kl"
         And Vygenerovany shell skript je "cat $FILENAME | awk -F '|' -v OFS='|' '!x{x=sub("$",")", $2)}1'"
+
+    Scenario: Pridani nastroje Regex Replace pro nahradu za spcialni znak
+        Given Uzivatel se nachazi na strance weboveho nastroje
+        And Do vstupniho editoru je vlozeno "ab\nc\n\n  \nde"
+        And Je zobrazena karta "Replace"
+        When Uzivatel nastavi Regex Replace case "isensitive"
+        And Uzivatel nastavi regularni vyraz pro vyhledani nahrady na "A"
+        And Uzivatel nastavi retezec pro nahradu regularniho vyrazu za "\"
+        And Uzivatel prida nastroj Regex Replace
+        Then Vysledek obsahuje "\\b\nc\n\n  \nde"
+        And Vygenerovany shell skript je "cat $FILENAME | sed -E 's/A/\\/gI'"
