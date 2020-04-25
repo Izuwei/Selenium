@@ -25,6 +25,18 @@ Feature: RegexReplace
         Then Vysledek obsahuje "abregrep\nregrepd\nAregrep"
         And Vygenerovany shell skript je "cat $FILENAME | sed -E 's/x+/regrep/gI'"
 
+    Scenario: Pridani nastroje sensitive Regex Replace  pro prvni vyskyt
+        Given Uzivatel se nachazi na strance weboveho nastroje
+        And Do vstupniho editoru je vlozeno "xcv\nlfAaxar\naabc\nlfaa"
+        And Je zobrazena karta "Replace"
+        When Uzivatel nastavi Regex Replace na prvni vyskyt
+        And Uzivatel nastavi Regex Replace case "sensitive"
+        And Uzivatel nastavi regularni vyraz pro vyhledani nahrady na "a{2,}"
+        And Uzivatel nastavi retezec pro nahradu regularniho vyrazu za "XX"
+        And Uzivatel prida nastroj Regex Replace
+        Then Vysledek obsahuje "xcv\nlfAaxar\nXXbc\nlfaa"
+        And Vygenerovany shell skript je "cat $FILENAME | sed -E '0,/a{2,}/s//XX/'"
+
     Scenario: Pridani nastroje Regex Replace ve sloupci pro vsechny vyskyty
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab-x-cd\nef\nGx-hEx\n\nx--x\nIx-XX"

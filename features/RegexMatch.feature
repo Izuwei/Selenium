@@ -12,6 +12,16 @@ Feature: RegexMatch
         Then Vysledek obsahuje "AAAx"
         And Vygenerovany shell skript je "cat $FILENAME | grep -E 'AA+'"
 
+    Scenario: Pridani nastroje isensitive Regex Match pro prvni vyskyt
+        Given Uzivatel se nachazi na strance weboveho nastroje
+        And Do vstupniho editoru je vlozeno "xcv\nlfAaxr\naabc\nlfaa"
+        When Uzivatel nastavi Regex Match na prvni vyskyt
+        And Uzivatel nastavi Regex Match case isensitive
+        And Uzivatel nastavi regularni vyraz pro vyhledani na "a{2,}"
+        And Uzivatel prida nastroj Regex Match
+        Then Vysledek obsahuje "lfAaxr"
+        And Vygenerovany shell skript je "cat $FILENAME | grep -E -i -m 1 'a{2,}'"
+
     Scenario: Pridani nastroje isensitive Regex Match ve sloupci
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab x cd\nef\nGx hEx\n\nx  x\nIx XX"

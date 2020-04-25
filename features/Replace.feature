@@ -14,6 +14,18 @@ Feature: Replace
         Then Vysledek obsahuje "abX\nrepd\nArep"
         And Vygenerovany shell skript je "cat $FILENAME | sed -E 's/x/rep/g'"
 
+    Scenario: Pridani nastroje isensitive Replace pro prvni vyskyt
+        Given Uzivatel se nachazi na strance weboveho nastroje
+        And Do vstupniho editoru je vlozeno "xcv\nlfAaxar\naabc\nlfaa"
+        And Je zobrazena karta "Replace"
+        When Uzivatel nastavi Replace na prvni vyskyt
+        And Uzivatel nastavi Replace case isensitive
+        And Uzivatel nastavi retezec pro vyhledani nahrady na "a"
+        And Uzivatel nastavi retezec pro nahradu na "rep"
+        And Uzivatel prida nastroj Replace
+        Then Vysledek obsahuje "xcv\nlfrepaxar\naabc\nlfaa"
+        And Vygenerovany shell skript je "cat $FILENAME | sed -E '0,/a/Is//rep/'"
+
     Scenario: Pridani nastroje isensitive Replace ve sloupci
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab-x-cd\nef\nGx-hEx\n\nx--x\nIx-XX"

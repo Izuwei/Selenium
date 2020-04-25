@@ -22,6 +22,16 @@ Feature: Match
         Then Vysledek obsahuje "ab x cd\nGx hEx\nIx XX"
         And Vygenerovany shell skript je "cat $FILENAME | awk -F '[ ]' -v OFS=' ' '{IGNORECASE=1} $2~/x/'"
 
+    Scenario: Pridani nastroje isensitive Match pro prvni vyskyt
+        Given Uzivatel se nachazi na strance weboveho nastroje
+        And Do vstupniho editoru je vlozeno "xcv\nlfAxr\nabc\nlfa"
+        When Uzivatel nastavi Match na prvni vyskyt
+        And Uzivatel nastavi Match case isensitive
+        And Uzivatel nastavi retezec pro vyhledani na "a"
+        And Uzivatel prida nastroj Match
+        Then Vysledek obsahuje "lfAxr"
+        And Vygenerovany shell skript je "cat $FILENAME | grep -E -i -m 1 'a'"
+
     Scenario: Pridani nastroje sensitive Match ve sloupci pro prvni vyskyt
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab|x|cd\neXf\nGx|hEx\n\nx||x\nIx|XX"
