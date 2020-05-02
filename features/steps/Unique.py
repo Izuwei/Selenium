@@ -23,7 +23,7 @@ def step(context, text):
     sleep(1)
     if (text == "sensitive"):
         context.browser.find_element_by_id("unique-case-sensitive").click()
-    if (text == "isensitive"):
+    if (text == "insensitive"):
         context.browser.find_element_by_id("unique-case-isensitive").click()
     sleep(1)
 

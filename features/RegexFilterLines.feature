@@ -13,11 +13,11 @@ Feature: RegexFilterLines
         Then Vysledek obsahuje " bb \nAA\n  \n"
         And Vygenerovany shell skript je "cat $FILENAME | sed -E '/a+/d'"
 
-    Scenario: Filtrace radku pomoci isensitivnich regularnich vyrazu ve sloupci
+    Scenario: Filtrace radku pomoci insensitivnich regularnich vyrazu ve sloupci
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "aa bb\n bb \nAA\n  \n\naa bbb cc"
         And Je zobrazena karta "Reduce"
-        When Uzivatel nastavi Regex filter lines na case "isensitive"
+        When Uzivatel nastavi Regex filter lines na case "insensitive"
         And Uzivatel nastavi Regex filter lines podle "2" sloupce oddeleny " "
         And Uzivatel zada regularni vyraz pro filtraci radku "b{3,}"
         And Uzivatel prida nastroj Regex filter lines

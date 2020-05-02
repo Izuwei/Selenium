@@ -14,11 +14,11 @@ Feature: RegexReplace
         Then Vysledek obsahuje "abX\nregrepd\nAregrep"
         And Vygenerovany shell skript je "cat $FILENAME | sed -E 's/x+/regrep/g'"
 
-    Scenario: Pridani nastroje isensitive Regex Replace
+    Scenario: Pridani nastroje insensitive Regex Replace
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "abX\nxd\nAx"
         And Je zobrazena karta "Replace"
-        When Uzivatel nastavi Regex Replace case "isensitive"
+        When Uzivatel nastavi Regex Replace case "insensitive"
         And Uzivatel nastavi regularni vyraz pro vyhledani nahrady na "x+"
         And Uzivatel nastavi retezec pro nahradu regularniho vyrazu za "regrep"
         And Uzivatel prida nastroj Regex Replace
@@ -41,7 +41,7 @@ Feature: RegexReplace
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab-x-cd\nef\nGx-hEx\n\nx--x\nIx-XX"
         And Je zobrazena karta "Replace"
-        When Uzivatel nastavi Regex Replace case "isensitive"
+        When Uzivatel nastavi Regex Replace case "insensitive"
         And Uzivatel nastavi Regex Replace na "2" sloupec oddeleny "-"
         And Uzivatel nastavi regularni vyraz pro vyhledani nahrady na ".*"
         And Uzivatel nastavi retezec pro nahradu regularniho vyrazu za "Z"
@@ -66,7 +66,7 @@ Feature: RegexReplace
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab\nc\n\n  \nde"
         And Je zobrazena karta "Replace"
-        When Uzivatel nastavi Regex Replace case "isensitive"
+        When Uzivatel nastavi Regex Replace case "insensitive"
         And Uzivatel nastavi regularni vyraz pro vyhledani nahrady na "A"
         And Uzivatel nastavi retezec pro nahradu regularniho vyrazu za "\"
         And Uzivatel prida nastroj Regex Replace

@@ -27,7 +27,7 @@ def step(context, text):
 def step(context):
     context.browser.find_element_by_id("add-regex-match").click()
 
-@when("Uzivatel nastavi Regex Match case isensitive")
+@when("Uzivatel nastavi Regex Match case insensitive")
 def step(context):
     context.browser.find_element_by_id("regex-match-case").click()
     sleep(1)

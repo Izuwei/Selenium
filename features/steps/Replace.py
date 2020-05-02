@@ -12,7 +12,7 @@ def step(context):
     context.browser.find_element_by_id("replace-case-sensitive").click()
     sleep(1)
 
-@when("Uzivatel nastavi Replace case isensitive")
+@when("Uzivatel nastavi Replace case insensitive")
 def step(context):
     context.browser.find_element_by_id("replace-case").click()
     sleep(1)

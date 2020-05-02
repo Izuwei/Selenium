@@ -12,21 +12,21 @@ Feature: Match
         Then Vysledek obsahuje "Ax"
         And Vygenerovany shell skript je "cat $FILENAME | grep -E 'A'"
 
-    Scenario: Pridani nastroje isensitive Match ve sloupci
+    Scenario: Pridani nastroje insensitive Match ve sloupci
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "ab x cd\nef\nGx hEx\n\nx  x\nIx XX"
-        When Uzivatel nastavi Match case isensitive
+        When Uzivatel nastavi Match case insensitive
         And Uzivatel nastavi Match na "2" sloupec oddeleny " "
         And Uzivatel nastavi retezec pro vyhledani na "x"
         And Uzivatel prida nastroj Match
         Then Vysledek obsahuje "ab x cd\nGx hEx\nIx XX"
         And Vygenerovany shell skript je "cat $FILENAME | awk -F '[ ]' -v OFS=' ' '{IGNORECASE=1} $2~/x/'"
 
-    Scenario: Pridani nastroje isensitive Match pro prvni vyskyt
+    Scenario: Pridani nastroje insensitive Match pro prvni vyskyt
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "xcv\nlfAxr\nabc\nlfa"
         When Uzivatel nastavi Match na prvni vyskyt
-        And Uzivatel nastavi Match case isensitive
+        And Uzivatel nastavi Match case insensitive
         And Uzivatel nastavi retezec pro vyhledani na "a"
         And Uzivatel prida nastroj Match
         Then Vysledek obsahuje "lfAxr"

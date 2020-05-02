@@ -11,7 +11,7 @@ def step(context, text):
     sleep(1)
     if (text == "sensitive"):
         context.browser.find_element_by_id("regex-replace-case-sensitive").click()
-    if (text == "isensitive"):
+    if (text == "insensitive"):
         context.browser.find_element_by_id("regex-replace-case-isensitive").click()
     sleep(1)
 

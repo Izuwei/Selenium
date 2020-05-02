@@ -21,7 +21,7 @@ Feature: FilterLines
         Then Vysledek obsahuje "aa bb\n bb \nAA\naa bb cc"
         And Vygenerovany shell skript je "cat $FILENAME | awk 'NF > 0'"
 
-    Scenario: Odstraneni radku pomoci senzitivniho podretezce
+    Scenario: Odstraneni radku pomoci sensitivniho podretezce
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "aa bb\n bb \nAA\n  \n\naa bb cc"
         And Je zobrazena karta "Reduce"
@@ -32,12 +32,12 @@ Feature: FilterLines
         Then Vysledek obsahuje " bb \nAA\n  \n"
         And Vygenerovany shell skript je "cat $FILENAME | sed -E '/a/d'"
 
-    Scenario: Odstraneni radku pomoci isensitivniho podretezce ve sloupci
+    Scenario: Odstraneni radku pomoci insensitivniho podretezce ve sloupci
         Given Uzivatel se nachazi na strance weboveho nastroje
         And Do vstupniho editoru je vlozeno "aa bb\n bb \nAA\n\nxs db\n ab\naa bb cc"
         And Je zobrazena karta "Reduce"
         When Uzivatel nastavi variantu Filter lines na "vlastni"
-        And Uzivatel nastavi filtraci radku na case "isensitive"
+        And Uzivatel nastavi filtraci radku na case "insensitive"
         And Uzivatel nastavi filtraci radku podle "1" sloupce oddeleny " "
         And Uzivatel nastavi podretezec pro filtraci radku na "a"
         And Uzivatel prida nastroj Filter lines
@@ -49,7 +49,7 @@ Feature: FilterLines
         And Do vstupniho editoru je vlozeno "aa bb\n bb \nAA\n  \n\naa bb cc"
         And Je zobrazena karta "Reduce"
         When Uzivatel nastavi variantu Filter lines na "vlastni"
-        And Uzivatel nastavi filtraci radku na case "isensitive"
+        And Uzivatel nastavi filtraci radku na case "insensitive"
         And Uzivatel nastavi filtraci radku podle "10" sloupce oddeleny " "
         And Uzivatel nastavi podretezec pro filtraci radku na "a"
         And Uzivatel prida nastroj Filter lines

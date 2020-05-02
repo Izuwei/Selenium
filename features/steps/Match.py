@@ -27,7 +27,7 @@ def step(context, text):
 def step(context):
     context.browser.find_element_by_id("add-match").click()
 
-@when("Uzivatel nastavi Match case isensitive")
+@when("Uzivatel nastavi Match case insensitive")
 def step(context):
     context.browser.find_element_by_id("match-case").click()
     sleep(1)
