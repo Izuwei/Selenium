@@ -1,23 +1,25 @@
-Testovano na Linux Ubuntu 18.04.4 LTS a 20.04 LTS
+Testováno na Linux Ubuntu 18.04.4 LTS a 20.04 LTS
+    1) Otevřít kořenový adresář s testy.
 
-Pro beh je potreba mit nainstalovany python3.6 a pip
-    sudo apt-get update
-    sudo apt-get install python3-pip
+Pro běh je potřeba mít nainstalovaný python 3.6 a pip.
+    2) sudo apt-get update
+    3) sudo apt-get install python3-pip
 
-Nainstalujeme selenium a behave
-    pip3 install selenium
-    pip3 install behave
-    sudo apt install python3-behave
+Instalace Selenium a behave.
+    4) pip3 install selenium
+    5) pip3 install behave
+    6) sudo apt install python3-behave
 
-Dale je potreba zprovoznit webdriver pro ovladani prohlizece (pro Firefox geckodriver dostupny z: https://github.com/mozilla/geckodriver/releases), po stahnuti je potreba ho umistit do adresare /usr/local/bin a pridat pravo pro spusteni (chmod +x), driver pouzity pri testovani je umisten v adresari ./drivers, ktery lze take pouzit.
-    sudo cp /drivers/geckodriver /usr/local/bin
+Dále je potřeba zprovoznit webdriver pro ovládání prohlížeče (pro Firefox se jedná o geckodriver dostupny na: https://github.com/mozilla/geckodriver/releases), po stáhnutí je nutné ho umístit do adresáře "/usr/local/bin" a přidat právo pro spuštění (chmod +x), driver použitý při testováni je umístěn v adresáři "./drivers", který lze také použít.
+    7) sudo cp drivers/geckodriver /usr/local/bin
 
-Nainstalovat GNU AWK (pro kompatibilitu s generovanymi skripty)
-    sudo apt-get update
-    sudo apt-get install gawk
+Instalace GNU AWK (pro kompatibilitu s generovanými skripty).
+    8) sudo apt-get update
+    9) sudo apt-get install gawk
 
-Spusteni vsech testu: behave
-Spusteni feature: behave -i <nazev>
-Spusteni scenare: behave -n "<nazev>"
+Spuštění testů nyní lze provést následujícími příkazy v kořenovém adresáři s testy:
+    Spuštění všech testů: behave
+    Spuštění feature: behave -i <název>
+    Spuštění scénáře: behave -n "<název>"
 
-Debug: behave -n "<scenar>" --no-capture -f plain
+Debug: behave -n "<scénář>" --no-capture -f plain
